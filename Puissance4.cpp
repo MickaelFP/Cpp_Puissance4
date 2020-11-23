@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -47,20 +46,32 @@ int main() {
     } */
     
     int colonne;
+    bool j1 = true;
     while(1) {
-        
+        cout << (j1?"tour j1":"tour j2");
+        cout << ", entrez un numéro de colonne : ";
         cin >> colonne;
         colonne--;
         for (int i = 5; i >= 0; i--) {
             
             if (tab[i][colonne] == 0) {
-                tab[i][colonne] = 1;
+                if(j1) {
+                    tab[i][colonne] = 1;
+                }
+                else {
+                    tab[i][colonne] = 2;
+                    
+                }
+                //system("cls");
+                j1 = !j1;
                 break;
-                
+            }
+            else if(i == 0) {
+                cout<<"Colonne pleine!" << endl;
+            }
+
         }
-            
-    }
-    show(tab);
+        show(tab);
         
     }
 
