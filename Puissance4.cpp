@@ -4,6 +4,27 @@
 
 using namespace std;
 
+void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
+    //lignes
+    //tab[ligne][colonne]
+    int compteur = 0
+    for(int j = colonne-3; j <= colonne + 3; j++) {
+        if(j < 0 || j > 6) {
+            continue;
+        }
+        else {
+            if (tab[ligne][j] == 1) {
+                compteur++;
+            }
+        }
+    }
+    cout << compteur << endl;
+    //colonnes
+    
+    //diagonales
+    
+}
+
 void show(int a [6][7]) {
     for (int i = 0; i < 6; i++){
         
@@ -68,13 +89,15 @@ int main() {
                     
                 }
                 system("cls");
+                cout << "Appel verifvictory : ";
+                verifvictory(tab, i, colonne, 1);
                 j1 = !j1;
                 break;
             }
             else if(i == 0) {
                 cout<<"Colonne pleine!" << endl;
             }
-
+    
         }
         show(tab);
         
