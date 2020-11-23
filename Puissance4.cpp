@@ -13,7 +13,7 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
             continue;
         }
         else {
-            if (tab[ligne][j] == 1) {
+            if (tab[ligne][j] == joueur) {
                 compteur++;
             }
         }
@@ -81,16 +81,18 @@ int main() {
         for (int i = 5; i >= 0; i--) {
             
             if (tab[i][colonne] == 0) {
+                int joueur = 0;
                 if(j1) {
                     tab[i][colonne] = 1;
+                    joueur = 1;
                 }
                 else {
                     tab[i][colonne] = 2;
-                    
+                    joueur = 2
                 }
                 system("cls");
                 cout << "Appel verifvictory : ";
-                verifvictory(tab, i, colonne, 1);
+                verifvictory(tab, i, colonne, joueur);
                 j1 = !j1;
                 break;
             }
