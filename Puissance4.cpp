@@ -48,10 +48,15 @@ int main() {
     int colonne;
     bool j1 = true;
     while(1) {
-        cout << (j1?"tour j1":"tour j2");
+        cout << (j1? "tour j1"  :"tour j2");
         cout << ", entrez un numéro de colonne : ";
         cin >> colonne;
+        while(colonne < 1 || colonne > 7) {
+            cout << "Mauvais numéro de colonne, réessayez : ";
+            cin >> colonne;
+        }
         colonne--;
+        
         for (int i = 5; i >= 0; i--) {
             
             if (tab[i][colonne] == 0) {
@@ -62,7 +67,7 @@ int main() {
                     tab[i][colonne] = 2;
                     
                 }
-                //system("cls");
+                system("cls");
                 j1 = !j1;
                 break;
             }
