@@ -1,6 +1,8 @@
 #include <iostream>
-#include <string>
-#include <vector>
+#include <time.h>
+//#include <string>
+//#include <vector>
+//#include <Windows.h> FONCTIONNE QUE SUR VISUAL
 
 using namespace std;
 
