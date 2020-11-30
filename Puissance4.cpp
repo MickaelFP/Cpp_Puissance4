@@ -88,7 +88,7 @@ int main() {
                 }
                 else {
                     tab[i][colonne] = 2;
-                    joueur = 2
+                    joueur = 2;
                 }
                 system("cls");
                 cout << "Appel verifvictory : ";
