@@ -16,6 +16,9 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
             if (tab[ligne][j] == joueur) {
                 compteur++;
             }
+            else {
+                compteur = 0;
+            }
         }
     }
     cout << compteur << endl;
