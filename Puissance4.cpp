@@ -7,7 +7,7 @@ using namespace std;
 void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
     //lignes
     //tab[ligne][colonne]
-    int compteur = 0
+    int compteur = 0;
     for(int j = colonne-3; j <= colonne + 3; j++) {
         if(j < 0 || j > 6) {
             continue;
