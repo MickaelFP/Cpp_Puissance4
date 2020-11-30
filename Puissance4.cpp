@@ -29,6 +29,7 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
     cout << compteur << endl;
     //colonnes
     //tab[ligne][colonne]
+    compteur = 0;
     for(int i = ligne-3; i <= ligne + 3; i++) { 
         if(i < 0 || i > 5) {
             continue;
