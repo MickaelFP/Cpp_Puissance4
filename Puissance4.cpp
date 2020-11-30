@@ -7,10 +7,11 @@
 using namespace std;
 
 void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
+    
     //lignes
     //tab[ligne][colonne]
     int compteur = 0;
-    for(int j = colonne-3; j <= colonne + 3; j++) {
+    for(int j = colonne - 3; j <= colonne + 3; j++) {
         if(j < 0 || j > 6) {
             continue;
         }
@@ -27,10 +28,11 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
         }
     }
     cout << compteur << endl;
+    
     //colonnes
     //tab[ligne][colonne]
     compteur = 0;
-    for(int i = ligne-3; i <= ligne + 3; i++) { 
+    for(int i = ligne - 3; i <= ligne + 3; i++) { 
         if(i < 0 || i > 5) {
             continue;
         }
@@ -48,8 +50,27 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
     }
     cout << compteur << endl;
     
-    //diagonales
     
+    //diagonale Haut-gauche
+    //tab[ligne][colonne]
+    compteur = 0;
+    for(int offset = -3; offset <= 3; offset++) {
+        int currentLine = ligne + offset;
+        int currentColumn = colonne + offset;
+        if ((currentLine < 0 || currentLine > 5) || (currentLine < 0 || currentColumn > 6)) {
+            continue;
+        }
+        if (tab[currentLine][currentColumn] == joueur) {
+            compteur++;
+            if (compteur >= 4) {
+                // GAGNE
+                cout << "GAGNE" << endl;
+            }
+        }
+        else {
+            compteur = 0;
+        }
+    }
 }
 
 void show(int a [6][7]) {
