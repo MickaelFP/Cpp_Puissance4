@@ -18,7 +18,7 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
             if (tab[ligne][j] == joueur) {
                 compteur++;
                 if (compteur >= 4) {
-                    cout << "GAGNE";
+                    cout << "GAGNE" << endl;
                 }
             }
             else {
@@ -38,11 +38,15 @@ void verifvictory(int tab[6][7], int ligne, int colonne, int joueur) {
             if (tab[i][colonne] == joueur) {
                 compteur++;
                 if (compteur >= 4) {
-                    cout << "GAGNE";
+                    cout << "GAGNE" << endl;
                 }
+            }
+            else {
+                compteur = 0;
             }
         }
     }
+    cout << compteur << endl;
     
     //diagonales
     
