@@ -116,12 +116,13 @@ void show(int a[6][7]) {
 	cout << "  1 2 3 4 5 6 7  " << endl << endl;
 }
 
-void jouer() {
+bool jouer() {
     
     int tab[6][7] = { 0 };
 	show(tab);
 	int colonne;
 	int joueur = 1;
+	int compteur = 0;
 	
 	while (1) {
 		cout << (joueur == 1 ? "tour j1" : "tour j2");
@@ -143,19 +144,18 @@ void jouer() {
 				//cout << "Appel verifVictory : ";
 				if (verifVictory(tab, i, colonne, joueur) == joueur) {
 					cout << "J" << joueur << " a gagné" << endl;
+					show(tab);
 					cout << "voulez-vous rejouer ? : Y" << endl;
 					char input;
 					cin >> input;
-					if (input = 'Y') {
-					    return true;
-					}
-					else {
-					    return false;
-					}
+					input = toupper(input);
+					return (input == 'Y' ? true : false);
+
 				}
 				compteur++;
 				cout << "Compteur = " << compteur << endl;
 				if(compteur >= 42) {
+				    show(tab);
 				    cout << "Tableau Plein !" << endl;
 				    return -1;
 				}
