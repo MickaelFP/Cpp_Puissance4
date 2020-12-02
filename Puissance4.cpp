@@ -116,21 +116,13 @@ void show(int a[6][7]) {
 	cout << "  1 2 3 4 5 6 7  " << endl << endl;
 }
 
-
-int main() {
-	//SetConsoleOutputCP(1252); FONCTIONNE QUE SUR VISUAL
-	srand(time(NULL));
-	int tab[6][7] = { 0 };
+void jouer() {
+    
+    int tab[6][7] = { 0 };
 	show(tab);
-
-	//Test random
-	/*for (int i = 0; i < 6; i++) {
-		for (int j = 0; j < 7; j++) {
-			tab[i][j] = (rand() % 2) + 1;
-		}
-	}*/
 	int colonne;
 	int joueur = 1;
+	
 	while (1) {
 		cout << (joueur == 1 ? "tour j1" : "tour j2");
 		cout << ", entrez un numéro de colonne (entre 1 et 7) : ";
@@ -151,6 +143,21 @@ int main() {
 				//cout << "Appel verifVictory : ";
 				if (verifVictory(tab, i, colonne, joueur) == joueur) {
 					cout << "J" << joueur << " a gagné" << endl;
+					cout << "voulez-vous rejouer ? : Y" << endl;
+					char input;
+					cin >> input;
+					if (input = 'Y') {
+					    return true;
+					}
+					else {
+					    return false;
+					}
+				}
+				compteur++;
+				cout << "Compteur = " << compteur << endl;
+				if(compteur >= 42) {
+				    cout << "Tableau Plein !" << endl;
+				    return -1;
 				}
 				joueur = (joueur == 1 ? 2 : 1);
 				break;
@@ -161,6 +168,15 @@ int main() {
 			}
 		}
 		show(tab);
+	}
+}
+
+int main() {
+	//SetConsoleOutputCP(1252); FONCTIONNE QUE SUR VISUAL
+	srand(time(NULL));
+	bool replay = true;
+	while (replay) {
+	    replay = jouer ();
 	}
 	return 0;
 }
